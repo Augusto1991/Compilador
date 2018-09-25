@@ -17,7 +17,7 @@ public class AS5 extends AbstractAS {
 		
 		lexico.devolverBuffer(lexico.getCaracterActual());
 		if(!lexico.estaEnTS(lexico.getTokenActual())) {
-			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"identificador"));
+			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"identificador",268));
 		}
 	}
 

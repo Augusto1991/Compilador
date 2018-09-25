@@ -16,7 +16,7 @@ public class AS10 extends AbstractAS {
 	
 		lexico.agregarCaracterAlToken(lexico.getCaracterActual());
 		if(!lexico.estaEnTS(lexico.getTokenActual())) {
-			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"cadena"));
+			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"cadena",269));
 		}
 	}
 

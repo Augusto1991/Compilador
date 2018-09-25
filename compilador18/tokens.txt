@@ -2,4 +2,30 @@ Linea 1: palabraReservada IF
 Linea 2: palabraReservada ELSE
 Linea 3: palabraReservada END_IF
 Linea 4: palabraReservada PRINT
+Linea 5: palabraReservada CASE
+Linea 6: palabraReservada DO
+Linea 7: palabraReservada VOID
+Linea 8: palabraReservada FUN
+Linea 9: palabraReservada RETURN
+Linea 10: palabraReservada INTEGER
+Linea 11: palabraReservada LINTEGER
+Linea 12: simbolo +
+Linea 13: simbolo -
+Linea 14: simbolo *
+Linea 15: simbolo /
+Linea 16: simbolo :=
+Linea 17: simbolo >
+Linea 18: simbolo <
+Linea 19: simbolo >=
+Linea 20: simbolo <=
+Linea 21: simbolo !=
+Linea 22: simbolo (
+Linea 22: simbolo )
+Linea 23: simbolo {
+Linea 23: simbolo }
+Linea 24: simbolo ;
+Linea 25: identificador _variable
+Linea 26: cadena 'una cadena de caracteres'
+Linea 27: integer 123
+Linea 28: linteger 456
 

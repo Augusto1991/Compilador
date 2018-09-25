@@ -18,10 +18,10 @@ public class AS7 extends AbstractAS {
 		
 		long checkMe = Long.parseLong(lexico.getTokenActual());
 		if ((checkMe > Math.pow(-2,31)) && checkMe < (Math.pow(2,31)-1)) {
-			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"linteger"));
+			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"linteger",271));
 		} else {
 			lexico.notificarError("WARNING El integer esta fuera de rango. Se pondra rango maximo");
-			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"integer"));
+			lexico.setTokenDesdeAS(lexico.altaEnTS(lexico.getTokenActual(),"integer",271));
 		}
 	}
 

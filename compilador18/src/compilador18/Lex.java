@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 
 import java.io.FileReader;
 import java.io.PushbackReader;
+import java.io.UnsupportedEncodingException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,7 +35,7 @@ public class Lex {
 	public String tokenActual;
 	public ArrayList<Object> tokenDesdeAS;
 	public char caracterActual;
-	private int idIcrementTS = 12;
+	private int idIcrementTS = 276;
 	private String listadoTokens;
 	private String listadoErrores;
 	
@@ -56,20 +57,21 @@ public class Lex {
 		TS = new HashMap<String, Object>();
 		
 		ArrayList<Object> token_if = new ArrayList<Object>(); 
-		token_if.add(1); 
+		token_if.add(257); 
 		token_if.add("palabraReservada"); 
+		token_if.add("IF"); 
 		TS.put("IF", token_if);
 		
-		ArrayList<Object> token_else = new ArrayList<>(); token_else.add(2); token_else.add("palabraReservada"); TS.put("ELSE", token_else);
-		ArrayList<Object> token_end = new ArrayList<>(); token_end.add(3); token_end.add("palabraReservada"); TS.put("END_IF", token_end);
-		ArrayList<Object> token_print = new ArrayList<>(); token_print.add(4); token_print.add("palabraReservada"); TS.put("PRINT", token_print);
-		ArrayList<Object> token_case = new ArrayList<>(); token_case.add(5); token_case.add("palabraReservada"); TS.put("CASE", token_case);
-		ArrayList<Object> token_do = new ArrayList<>(); token_do.add(6); token_do.add("palabraReservada"); TS.put("DO", token_do);
-		ArrayList<Object> token_void = new ArrayList<>(); token_void.add(7); token_void.add("palabraReservada"); TS.put("VOID", token_void);
-		ArrayList<Object> token_fun = new ArrayList<>(); token_fun.add(8); token_fun.add("palabraReservada"); TS.put("FUN", token_fun);
-		ArrayList<Object> token_return = new ArrayList<>(); token_return.add(9); token_return.add("palabraReservada"); TS.put("RETURN", token_return);
-		ArrayList<Object> token_integer = new ArrayList<>(); token_integer.add(10); token_integer.add("palabraReservada"); TS.put("INTEGER", token_integer);
-		ArrayList<Object> token_linteger = new ArrayList<>(); token_linteger.add(11); token_linteger.add("palabraReservada"); TS.put("LINTEGER", token_linteger);
+		ArrayList<Object> token_else = new ArrayList<>(); token_else.add(258); token_else.add("palabraReservada"); token_else.add("ELSE"); TS.put("ELSE", token_else);
+		ArrayList<Object> token_end = new ArrayList<>(); token_end.add(259); token_end.add("palabraReservada"); token_end.add("END_IF"); TS.put("END_IF", token_end);
+		ArrayList<Object> token_print = new ArrayList<>(); token_print.add(260); token_print.add("palabraReservada"); token_print.add("PRINT"); TS.put("PRINT", token_print);
+		ArrayList<Object> token_case = new ArrayList<>(); token_case.add(263); token_case.add("palabraReservada"); token_case.add("CASE"); TS.put("CASE", token_case);
+		ArrayList<Object> token_do = new ArrayList<>(); token_do.add(264); token_do.add("palabraReservada"); token_do.add("DO"); TS.put("DO", token_do);
+		ArrayList<Object> token_void = new ArrayList<>(); token_void.add(265); token_void.add("palabraReservada"); token_void.add("VOID"); TS.put("VOID", token_void);
+		ArrayList<Object> token_fun = new ArrayList<>(); token_fun.add(266); token_fun.add("palabraReservada"); token_fun.add("FUN"); TS.put("FUN", token_fun);
+		ArrayList<Object> token_return = new ArrayList<>(); token_return.add(267); token_return.add("palabraReservada"); token_return.add("RETURN"); TS.put("RETURN", token_return);
+		ArrayList<Object> token_integer = new ArrayList<>(); token_integer.add(261); token_integer.add("palabraReservada"); token_integer.add("INTEGER"); TS.put("INTEGER", token_integer);
+		ArrayList<Object> token_linteger = new ArrayList<>(); token_linteger.add(262); token_linteger.add("palabraReservada"); token_linteger.add("LINTEGER"); TS.put("LINTEGER", token_linteger);
 	}
 	
 	private void cargarAS() {
@@ -82,6 +84,7 @@ public class Lex {
         AbstractAS AS6 = new AS6(this);
         AbstractAS AS7 = new AS7(this);
         AbstractAS AS8 = new AS8(this);
+        AbstractAS AS9 = new AS9(this);
         AbstractAS AS10 = new AS10(this);
         
         matrizAccionesSemanticas[0][0] = AS1;
@@ -117,20 +120,20 @@ public class Lex {
         
         matrizAccionesSemanticas[4][4] = AS8;
         
-        matrizAccionesSemanticas[5][0] = AS3;
-        matrizAccionesSemanticas[5][1] = AS3;
-        matrizAccionesSemanticas[5][2] = AS3;
-        matrizAccionesSemanticas[5][3] = AS3;
+        matrizAccionesSemanticas[5][0] = AS9;
+        matrizAccionesSemanticas[5][1] = AS9;
+        matrizAccionesSemanticas[5][2] = AS9;
+        matrizAccionesSemanticas[5][3] = AS9;
         matrizAccionesSemanticas[5][4] = AS8;
-        matrizAccionesSemanticas[5][5] = AS3;
-        matrizAccionesSemanticas[5][6] = AS3;
-        matrizAccionesSemanticas[5][7] = AS3;
-        matrizAccionesSemanticas[5][8] = AS3;
-        matrizAccionesSemanticas[5][9] = AS3;
-        matrizAccionesSemanticas[5][10] = AS3;
-        matrizAccionesSemanticas[5][11] = AS3;
-        matrizAccionesSemanticas[5][12] = AS3;
-        matrizAccionesSemanticas[5][13] = AS3;  
+        matrizAccionesSemanticas[5][5] = AS9;
+        matrizAccionesSemanticas[5][6] = AS9;
+        matrizAccionesSemanticas[5][7] = AS9;
+        matrizAccionesSemanticas[5][8] = AS9;
+        matrizAccionesSemanticas[5][9] = AS9;
+        matrizAccionesSemanticas[5][10] = AS9;
+        matrizAccionesSemanticas[5][11] = AS9;
+        matrizAccionesSemanticas[5][12] = AS9;
+        matrizAccionesSemanticas[5][13] = AS9;  
         
         matrizAccionesSemanticas[6][0] = AS2;
         matrizAccionesSemanticas[6][1] = AS2;
@@ -194,7 +197,7 @@ public class Lex {
         referencia.put("EOF", 13);
 	}
 	
-	public Object leerToken() throws IOException {
+	public int yylex() throws IOException {
 		
 		tokenActual = "";
 		int estadoActual = 0;
@@ -221,7 +224,7 @@ public class Lex {
 				
 				//Consideracion de corte para EOF
 				if ( estadoActual == 0 && c == -1) {
-					return null;
+					return 0;
 				}
 				
 				//Identificar que se esta leyendo para poder matchear con la matriz de estados
@@ -255,11 +258,14 @@ public class Lex {
 	            }
 			}
 			notificarToken(tokenDesdeAS.get(1)+" "+tokenActual);
-			return tokenDesdeAS;
+
+			
+			System.out.println(tokenDesdeAS.get(0));
+			return (int) tokenDesdeAS.get(0);
 			
 		} catch (FileNotFoundException ex) {
 			notificarError("Archivo no encontrado");
-			return null;
+			return 0;
         }
 	}
 	
@@ -292,19 +298,33 @@ public class Lex {
 		tokenDesdeAS = (ArrayList<Object>) TS.get(s);
 	}
 	
-	public void setSimbolo(String s) {
+	public void setSimbolo(String s) throws UnsupportedEncodingException {
 		ArrayList<Object> simbolo = new ArrayList<>(); 
+		int asciiNumber;
+		byte[] bytes;
+		switch (s) {
+	        case ">=":  asciiNumber = 272; break;
+	        case "<=":  asciiNumber = 273; break;
+	        case "!=":  asciiNumber = 274; break;
+	        case ":=":  asciiNumber = 275; break;
+	        default:	bytes = s.getBytes("US-ASCII");
+	        			asciiNumber =  (int) bytes[0];
+	        			break;
+		}
+		simbolo.add(asciiNumber);
+		simbolo.add("simbolo");
 		simbolo.add(s); 
-		simbolo.add("simbolo"); 
 		
 		tokenDesdeAS = simbolo;
 	}
 	
-	public String altaEnTS(String s, String tipo) {
+	public String altaEnTS(String s, String tipo, int indiceTS) {
 		ArrayList<Object> nuevaEntrada = new ArrayList<>(); 
-		nuevaEntrada.add(idIcrementTS); 
-		idIcrementTS++;
-		nuevaEntrada.add(tipo); 
+		//nuevaEntrada.add(idIcrementTS); 
+		//idIcrementTS++;
+		nuevaEntrada.add(indiceTS);
+		nuevaEntrada.add(tipo);
+		nuevaEntrada.add(s); 
 		TS.put(s, nuevaEntrada);
 		return s;
 	}
@@ -330,17 +350,14 @@ public class Lex {
 		String path = "ejemplo.txt";//;args[0]; TODO completar con el path para el ejecutable
 		//
 		Lex L = new Lex(path);
-		Object token = L.leerToken();
+		int token = L.yylex();
 		
-		while(token!=null) {
-			token = L.leerToken();
+		while(token!=0) {
+			token = L.yylex();
 		}
-		try (PrintWriter out = new PrintWriter("tokens.txt")) {
-		    out.println(L.getListadoTokens());
-		}
-		try (PrintWriter out = new PrintWriter("errores.txt")) {
-		    out.println(L.getListadoErrores());
-		}
+		
+		//System.out.println(L.getListadoTokens());
+
 		
 	}
 }

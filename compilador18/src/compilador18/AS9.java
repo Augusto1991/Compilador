@@ -14,6 +14,7 @@ public class AS9 extends AbstractAS {
 	@Override
 	public void ejecutar(HashMap<String, Object> tablaSimbolos) throws IOException {
 		lexico.devolverBuffer(lexico.getCaracterActual());
+		lexico.setSimbolo(lexico.getTokenActual());
 	}
 
 }
