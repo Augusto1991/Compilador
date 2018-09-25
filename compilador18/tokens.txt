@@ -1,0 +1,5 @@
+Linea 1: palabraReservada IF
+Linea 2: palabraReservada ELSE
+Linea 3: palabraReservada END_IF
+Linea 4: palabraReservada PRINT
+

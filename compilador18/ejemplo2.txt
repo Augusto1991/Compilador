@@ -22,7 +22,3 @@ LINTEGER
 ( )
 { }
 ;
-_variable
-'una cadena de caracteres'
-123_i
-456_l
