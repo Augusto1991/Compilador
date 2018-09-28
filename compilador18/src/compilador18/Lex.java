@@ -260,7 +260,7 @@ public class Lex {
 			notificarToken(tokenDesdeAS.get(1)+" "+tokenActual);
 
 			
-			System.out.println(tokenDesdeAS.get(0));
+			//System.out.println(tokenDesdeAS.get(0));
 			return (int) tokenDesdeAS.get(0);
 			
 		} catch (FileNotFoundException ex) {
@@ -351,9 +351,11 @@ public class Lex {
 		//
 		Lex L = new Lex(path);
 		int token = L.yylex();
+		System.out.println(token);
 		
 		while(token!=0) {
 			token = L.yylex();
+			System.out.println(token);
 		}
 		
 		//System.out.println(L.getListadoTokens());
