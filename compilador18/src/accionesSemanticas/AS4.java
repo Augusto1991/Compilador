@@ -11,9 +11,9 @@ public class AS4 implements AccionSemantica {
 		//Contaste entera larga, verificar limite y agregar.
 		long cte = Long.parseLong(lexema.toString());
 		if (cte > Math.pow(2, 31)) {
-			System.out.println("Linea " + pf.getNroLinea() + ": (AL) WARNING: Constante fuera del rango permitido. (integer = "+ (int) cte +")");
+			System.out.println("Linea " + pf.getNroLinea() + ": (AL) WARNING: Constante fuera del rango permitido. (integer = "+ (long) cte +")");
 			cte = (long)Math.pow(2, 31);
-			System.out.println("Linea " + pf.getNroLinea() + ": (AL) WARNING: Se le asignara el mayor valor permitido. ("+ (int) cte +")");
+			System.out.println("Linea " + pf.getNroLinea() + ": (AL) WARNING: Se le asignara el mayor valor permitido. ("+ (long) cte +")");
 		}
 		Token token = new Token(TablaSimbolos.getID("cte_larga"), Long.toString(cte),"Constante entera larga");
 		token.addAtributo("Tipo", "linteger");

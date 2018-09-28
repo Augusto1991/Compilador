@@ -10,15 +10,15 @@ public class AnalizadorLexico {
 	
 	private BufferLectura programaFuente;
 	private int[][] matrizEstados = {
-			{8,2,9,4,9,5,1,8,8,6,7,0,0,9},
-			{1,1,9,9,9,9,9,1,1,9,9,9,9,9},
-			{9,2,9,9,9,9,3,9,9,9,9,9,9,9},
-			{9,9,9,9,9,9,9,9,9,9,9,9,9,9},
-			{9,9,9,9,9,9,9,9,9,9,9,9,9,9},
-			{9,9,9,9,9,9,9,9,9,9,9,9,9,9},
-			{6,6,6,6,6,6,6,6,6,9,6,6,9,6},
-			{7,7,7,7,7,7,7,7,7,7,0,7,7,7},
-			{8,9,9,9,9,9,8,8,8,9,9,9,9,9},
+			{8,2,9,4,9,5,1,8,8,6,7,0,0,9,9},
+			{1,1,9,9,9,9,9,1,1,9,9,9,9,9,9},
+			{9,2,9,9,9,9,3,9,9,9,9,9,9,9,9},
+			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+			{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+			{6,6,6,6,6,6,6,6,6,9,6,6,9,6,9},
+			{7,7,7,7,7,7,7,7,7,7,0,7,7,7,9},
+			{8,9,9,9,9,9,8,8,8,9,9,9,9,9,9},
 			};
 	
 	private  AccionSemantica[][] matrizAccionesSemanticas;
@@ -29,7 +29,7 @@ public class AnalizadorLexico {
 	}
 	
 	private void cargarAS() {
-		matrizAccionesSemanticas =  new AccionSemantica[9][14];
+		matrizAccionesSemanticas =  new AccionSemantica[9][15];
 		AccionSemantica AS1 = new AS1();
 		AccionSemantica AS2 = new AS2();
 		AccionSemantica AS3 = new AS3();
@@ -41,6 +41,7 @@ public class AnalizadorLexico {
 		AccionSemantica AS9 = new AS9();
 		AccionSemantica AS10 = new AS10();
 		AccionSemantica AS11 = new AS11();
+		AccionSemantica AS12 = new AS12();
         
         matrizAccionesSemanticas[0][0] = AS1;
         matrizAccionesSemanticas[0][1] = AS1;
@@ -51,11 +52,12 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[0][6] = AS1;
         matrizAccionesSemanticas[0][7] = AS1;
         matrizAccionesSemanticas[0][8] = AS1;
-        matrizAccionesSemanticas[0][9] = AS1;
-        matrizAccionesSemanticas[0][10] = AS11;
+        matrizAccionesSemanticas[0][9] = AS11;
+        matrizAccionesSemanticas[0][10] = AS1;
         matrizAccionesSemanticas[0][11] = AS11;
         matrizAccionesSemanticas[0][12] = AS10;
         matrizAccionesSemanticas[0][13] = AS11;
+        matrizAccionesSemanticas[0][14] = AS11;
         
         matrizAccionesSemanticas[1][0] = AS1;
         matrizAccionesSemanticas[1][1] = AS1;
@@ -71,6 +73,7 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[1][11] = AS2;
         matrizAccionesSemanticas[1][12] = AS2;
         matrizAccionesSemanticas[1][13] = AS2;
+        matrizAccionesSemanticas[1][14] = AS2;
         
         matrizAccionesSemanticas[2][0] = AS9;
         matrizAccionesSemanticas[2][1] = AS1;
@@ -86,6 +89,7 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[2][11] = AS9;
         matrizAccionesSemanticas[2][12] = AS9;
         matrizAccionesSemanticas[2][13] = AS9;
+        matrizAccionesSemanticas[2][14] = AS9;
         
         matrizAccionesSemanticas[3][0] = AS9;
         matrizAccionesSemanticas[3][1] = AS9;
@@ -101,6 +105,7 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[3][11] = AS9;
         matrizAccionesSemanticas[3][12] = AS9;
         matrizAccionesSemanticas[3][13] = AS9;
+        matrizAccionesSemanticas[3][14] = AS9;
         
         matrizAccionesSemanticas[4][0] = AS9;
         matrizAccionesSemanticas[4][1] = AS9;
@@ -116,6 +121,7 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[4][11] = AS9;
         matrizAccionesSemanticas[4][12] = AS9;
         matrizAccionesSemanticas[4][13] = AS9;
+        matrizAccionesSemanticas[4][14] = AS9;
         
         matrizAccionesSemanticas[5][0] = AS7;
         matrizAccionesSemanticas[5][1] = AS7;
@@ -130,7 +136,8 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[5][10] = AS7;
         matrizAccionesSemanticas[5][11] = AS7;
         matrizAccionesSemanticas[5][12] = AS7;
-        matrizAccionesSemanticas[5][13] = AS7;  
+        matrizAccionesSemanticas[5][13] = AS7;
+        matrizAccionesSemanticas[5][14] = AS9;
         
         matrizAccionesSemanticas[6][0] = AS1;
         matrizAccionesSemanticas[6][1] = AS1;	
@@ -146,21 +153,23 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[6][11] = AS1;
         matrizAccionesSemanticas[6][12] = AS9;
         matrizAccionesSemanticas[6][13] = AS1;
+        matrizAccionesSemanticas[6][14] = AS9;
         
-        matrizAccionesSemanticas[7][0] = AS11;
-        matrizAccionesSemanticas[7][1] = AS11;	
-        matrizAccionesSemanticas[7][2] = AS11;
-        matrizAccionesSemanticas[7][3] = AS11;
-        matrizAccionesSemanticas[7][4] = AS11;
-        matrizAccionesSemanticas[7][5] = AS11;
-        matrizAccionesSemanticas[7][6] = AS11;
-        matrizAccionesSemanticas[7][7] = AS11;
-        matrizAccionesSemanticas[7][8] = AS11;
-        matrizAccionesSemanticas[7][9] = AS11;
-        matrizAccionesSemanticas[7][10] = AS11;
-        matrizAccionesSemanticas[7][11] = AS11;
+        matrizAccionesSemanticas[7][0] = AS1;
+        matrizAccionesSemanticas[7][1] = AS1;	
+        matrizAccionesSemanticas[7][2] = AS1;
+        matrizAccionesSemanticas[7][3] = AS1;
+        matrizAccionesSemanticas[7][4] = AS1;
+        matrizAccionesSemanticas[7][5] = AS1;
+        matrizAccionesSemanticas[7][6] = AS1;
+        matrizAccionesSemanticas[7][7] = AS1;
+        matrizAccionesSemanticas[7][8] = AS1;
+        matrizAccionesSemanticas[7][9] = AS1;
+        matrizAccionesSemanticas[7][10] = AS12;
+        matrizAccionesSemanticas[7][11] = AS1;
         matrizAccionesSemanticas[7][12] = AS11;
-        matrizAccionesSemanticas[7][13] = AS11;
+        matrizAccionesSemanticas[7][13] = AS1;
+        matrizAccionesSemanticas[7][14] = AS9;
         
         matrizAccionesSemanticas[8][0] = AS1;
         matrizAccionesSemanticas[8][1] = AS5;
@@ -175,7 +184,8 @@ public class AnalizadorLexico {
         matrizAccionesSemanticas[8][10] = AS5;
         matrizAccionesSemanticas[8][11] = AS5;
         matrizAccionesSemanticas[8][12] = AS5;
-        matrizAccionesSemanticas[8][13] = AS5;  
+        matrizAccionesSemanticas[8][13] = AS5;
+        matrizAccionesSemanticas[8][14] = AS5;
        
 	}
 	
@@ -209,6 +219,8 @@ public class AnalizadorLexico {
 			return 11;
 		else if (caracter == 10) // \n
 			return 12;
+		else if (caracter == 0) // eof
+			return 14;
 		else // otro
 			return 13;
 		
