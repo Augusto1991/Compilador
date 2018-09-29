@@ -1,3 +1,0 @@
-Linea 17: ERROR La palabra reservada no esta en la Tabla de Simbolos
-Linea 18: ERROR La palabra reservada no esta en la Tabla de Simbolos
-

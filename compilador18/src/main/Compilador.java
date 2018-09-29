@@ -3,6 +3,7 @@ package main;
 import java.io.FileInputStream;
 
 import analizadorLexico.AnalizadorLexico;
+import analizadorSintactico.Parser;
 import globales.TablaSimbolos;
 
 public class Compilador {
@@ -16,16 +17,11 @@ public class Compilador {
 				 sb.append((char) archivo.read());
 			 AnalizadorLexico al = new AnalizadorLexico(sb);
 			 archivo.close();
-			 run(al);
+			 Parser parser = new Parser(al);
+			 parser.run();
+			 System.out.println("Tabla de Simbolos: \n" +TablaSimbolos.imprimir());
 		 } catch (Exception e) {}
 
-	}
-
-	private static void run(AnalizadorLexico al) {
-		while(al.notEOF()) {
-			int aux = al.yylex();
-		}
-		System.out.println("Tabla de Simbolos: \n" +TablaSimbolos.imprimir());
 	}
 
 }

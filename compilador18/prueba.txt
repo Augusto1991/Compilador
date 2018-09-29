@@ -9,7 +9,7 @@ _b:=2147483647_l,
 _b:=-2147483649_l,
 _b:=2147483648_l,
 integer _abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz,
-linteger _a_1_2_3_4,
+linteger _a;_1;_2 ;_3 ;_4,
 IF (_b < 100_i) _b:=2_l, ELSE _b:=0_l, END_IF
 if (_b = 0_l) _a:=1_i, end_if
 

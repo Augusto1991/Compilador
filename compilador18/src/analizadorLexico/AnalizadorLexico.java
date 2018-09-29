@@ -1,6 +1,7 @@
 package analizadorLexico;
 
 import accionesSemanticas.*;
+import analizadorSintactico.*;
 
 public class AnalizadorLexico {
 	
@@ -250,7 +251,7 @@ public class AnalizadorLexico {
 		}
 		
 		if (devolucion != null) {
-			//Parser.yylval = new ParserVal(devolucion.getLexema());
+			Parser.yylval = new ParserVal(devolucion.getLexema());
 			System.out.println("Linea " + programaFuente.getNroLinea() + ": (AL) " + devolucion.imprimir());
 			return devolucion.getIdentificador();
 		}
