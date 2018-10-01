@@ -1,0 +1,19 @@
+fun _f1 (){ 
+	_a:=10_i, 
+	_b:= _b + _a, 
+	return (
+		if (_a < 100_i) 
+			_b:=2_l, 
+		else 
+			_b:=0_l, 
+		end_if,
+	),
+}
+
+fun _f2 (){ 
+	_b:= _b - _a, 
+	void _g () {
+		return (print('funcion void'),),
+	}
+	return (_b := 1_i,),
+}

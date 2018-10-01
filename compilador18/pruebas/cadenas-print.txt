@@ -1,0 +1,4 @@
+print ( 'una cadena de una linea' ),
+
+print ( 'una cadena erronea
+de mas de una linea'),

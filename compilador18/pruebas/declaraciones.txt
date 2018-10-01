@@ -1,0 +1,7 @@
+integer _a1,
+integer _b2; _c3; _d,
+
+linteger _nuevoIdentificadorConNombreLargo,
+
+integer 1,
+integer a_,

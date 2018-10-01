@@ -1,0 +1,5 @@
+#un comentario 
+BIEN definido
+de mas de una linea#
+
+#un comentario mal definido

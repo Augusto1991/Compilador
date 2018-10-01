@@ -1,0 +1,15 @@
+if (_b = 0_l) 
+	_a:=1_i, 
+end_if,
+
+if (_a = 1_i) 
+	_b:=1_l, 
+else 
+	_b:=0_l,
+end_if,
+
+if (_b = 0_l) {
+	_a:=1_i, 
+	_a:=2_i,
+}
+end_if,

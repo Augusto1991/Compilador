@@ -1,0 +1,11 @@
+case ( _b ){
+	
+	2_l:do print('B es 2'),
+	
+	0_l:do print('B es 0'),
+	
+	3_l:do{ 
+		print('B es 3'),
+		_b := 4_l,
+	}
+},
