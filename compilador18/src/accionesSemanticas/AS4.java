@@ -18,7 +18,13 @@ public class AS4 implements AccionSemantica {
 		Token token = new Token(TablaSimbolos.getID("cte_larga"), Long.toString(cte),"Constante entera larga");
 		token.addAtributo("Tipo", "linteger");
 		TablaSimbolos.addSimbolo(token);
-		//Agregar atributo contador e incrementar si ya esta
+		Token t = TablaSimbolos.getSimbolo(Long.toString(cte));
+		if (t.getAtributo("contador") == null) {
+			t.addAtributo("contador", "1");
+		} else {
+			int contador = Integer.parseInt(t.getAtributo("contador")) + 1 ;
+			t.addAtributo("contador", String.valueOf(contador));
+		}
 		return token;
 	}
 

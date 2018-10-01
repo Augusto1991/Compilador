@@ -34,6 +34,10 @@ public class Token {
 		return lexema;
 	}
 	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
 	public String imprimir() {
 		return ("Token: " + id + "  | Lexema: " + lexema + "  | Descripción: " + descripcion);
 	}

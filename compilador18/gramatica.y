@@ -40,6 +40,7 @@ bloque_sentencias		: bloque_sentencias sentencia_ejecutable
 ;
 
 bloque_control			: '{' bloque_control sentencia_ejecutable '}'
+						| '{' sentencia_ejecutable '}'
 						| sentencia_ejecutable
 ;
 
@@ -79,7 +80,7 @@ retorno					: bloque_sentencias
 fin_funcion           	: '}' 
 ;
 
-llamado_funcion			: ID '('')'
+llamado_funcion			: ID '('')' ',' {System.out.println("Linea " + al.getNroLinea() + ": (AS) Se reconocion el llamado de una funcion.");}
 ;
 
 declaracion_variables   : tipo lista_de_variables ',' {System.out.println("Linea " + al.getNroLinea() + ": (AS) Se reconocion una declaracion de variables.");}
@@ -105,7 +106,7 @@ sentencia_ejecutable  	: sentencia_seleccion
 
 
 sentencia_seleccion	  	: IF condicion_IF bloque_control END_IF ',' {System.out.println("Linea " + al.getNroLinea() + ": (AS) Se reconocion una sentencia IF.");}
-					  	| IF condicion_IF bloque_control ELSE bloque_control END_IF ','
+					  	| IF condicion_IF bloque_control ELSE bloque_control END_IF ',' {System.out.println("Linea " + al.getNroLinea() + ": (AS) Se reconocion una sentencia IF.");}
 					  	| error condicion_IF bloque_control END_IF ',' {System.out.println("Linea " + al.getNroLinea() + ": (AS) Falta la palabra reservada 'if'.");}
 					  	| IF condicion_IF bloque_control error ',' {System.out.println("Linea " + al.getNroLinea() + ": (AS) Falta la palabra reservada 'end_if'.");}
 					  	| IF condicion_IF bloque_control END_IF error {System.out.println("Linea " + al.getNroLinea() + ": (AS) Falta ',' luego de la sentencia IF.");}
@@ -202,15 +203,52 @@ factor 					: ID
 						| cte
 ;
 
-cte 					: CTE {$$ = $1;} //verificar rango
-						| CTE_LARGA {$$ = $1;} //verificar rango
-						| '-' CTE // verIFicar rango
-						| '-' CTE_LARGA // verificar rango
+cte 					: CTE 	{
+									String cte = $1.sval;
+									verificar_rango(cte, (long) Math.pow(2, 15));
+								}
+						| CTE_LARGA {
+										String cte = $1.sval;
+										verificar_rango(cte, (long) Math.pow(2, 31));
+									}
+						| '-' CTE 	{
+										String cte = $2.sval;
+										verificar_negativo(cte);
+									}
+						| '-' CTE_LARGA {
+											String cte = $2.sval;
+											verificar_negativo(cte);
+										}
 ;
 
 %%
 
 private AnalizadorLexico al;
+
+public void verificar_rango(String cte, long rango) {
+    if ( Long.parseLong(cte) == rango ) {
+		System.out.println("Linea " + al.getNroLinea() + ": (AS) WARNING: Constante fuera del rango permitido. (integer = "+ cte +")");
+		System.out.println("Linea " + al.getNroLinea() + ": (AS) WARNING: Se le asignara el mayor valor permitido. ("+ Long.toString(rango-1) +")");
+		TablaSimbolos.modificarLexema(cte, Long.toString(rango-1));
+	}
+}
+
+public void verificar_negativo(String cte)
+{
+	String nuevoLex = "-" + cte;
+	Token viejo = TablaSimbolos.getSimbolo(cte);
+	if( !TablaSimbolos.contiene(nuevoLex)){
+		Token t = new Token(viejo.getIdentificador(), nuevoLex, viejo.getDescripcion() + " negativa");
+		TablaSimbolos.addSimbolo(t);
+	}
+	int contador = Integer.parseInt(viejo.getAtributo("contador")) - 1 ;
+	if( contador == 0) {
+		TablaSimbolos.remove(viejo.getLexema());
+		System.out.println("constante borrada");
+	} else {
+		viejo.addAtributo("contador",String.valueOf(contador));
+	}	
+}
 
 public int yylex() {
 	if (al.notEOF()) {
