@@ -1,3 +1,0 @@
-integer _a1,
-
-_a1 := linteger(_a1),
