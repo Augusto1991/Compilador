@@ -1,0 +1,23 @@
+ejecutable
+	lista_variables
+		linteger
+	CASE (Tipo: integer)
+		_b (Tipo: linteger)
+		LISTA_OPCIONES
+			LISTA_OPCIONES
+				DO
+					2 (Tipo: linteger)
+					PRINT
+						B es 2 (Tipo: sin definir)
+				DO
+					0 (Tipo: linteger)
+					PRINT
+						B es 0 (Tipo: sin definir)
+			DO
+				3 (Tipo: linteger)
+				BLOQUE
+					PRINT
+						B es 3 (Tipo: sin definir)
+					:= (Tipo: linteger)
+						_b (Tipo: linteger)
+						4 (Tipo: linteger)

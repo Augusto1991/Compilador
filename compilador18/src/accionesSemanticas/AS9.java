@@ -5,7 +5,6 @@ import analizadorLexico.Token;
 
 public class AS9 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		// Caracter invalido
 		pf.devolverCaracter(ultimo_caracter);

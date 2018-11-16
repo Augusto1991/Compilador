@@ -6,7 +6,6 @@ import globales.TablaSimbolos;
 
 public class AS8 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		//devolver cadena.
 		Token token = new Token(TablaSimbolos.getID("cadena"), lexema.toString(),"cadena");

@@ -6,7 +6,6 @@ import globales.TablaSimbolos;
 
 public class AS4 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		//Contaste entera larga, verificar limite y agregar.
 		long cte = Long.parseLong(lexema.toString());

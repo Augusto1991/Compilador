@@ -114,7 +114,7 @@ int i;
 
 String   yytext;//user variable to return contextual strings
 ParserVal yyval; //used to return semantic vals from action routines
-public static ParserVal yylval;//the 'lval' (result) I got from yylex()
+ParserVal yylval;//the 'lval' (result) I got from yylex()
 ParserVal valstk[];
 int valptr;
 //###############################################################
@@ -1609,9 +1609,9 @@ public void run()
  * Default constructor.  Turn off with -Jnoconstruct .
 
  */
-public Parser(AnalizadorLexico al)
+public Parser()
 {
-  this.al = al;
+  //nothing to do
 }
 
 

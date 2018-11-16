@@ -6,7 +6,6 @@ import globales.TablaSimbolos;
 
 public class AS2 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		//chequear longitud de los identificadores.
 		pf.devolverCaracter(ultimo_caracter);

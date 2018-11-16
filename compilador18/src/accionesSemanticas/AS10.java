@@ -5,7 +5,6 @@ import analizadorLexico.Token;
 
 public class AS10 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		//Salto de linea
 		pf.sigLinea();

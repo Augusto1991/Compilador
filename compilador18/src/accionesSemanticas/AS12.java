@@ -5,7 +5,6 @@ import analizadorLexico.Token;
 
 public class AS12 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		//descartar cadena
 		lexema.setLength(0);

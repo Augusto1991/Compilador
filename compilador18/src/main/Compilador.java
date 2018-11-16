@@ -10,8 +10,8 @@ public class Compilador {
 
 	public static void main(String[] args) {
 		try {
-			String path = args[0];
-			//String path = "pruebas/conversiones.txt";
+			//String path = args[0];
+			String path = "pruebas/case.txt";
 			FileInputStream archivo = new FileInputStream(path);
 			StringBuffer sb = new StringBuffer();
 			while (archivo.available() != 0)
@@ -22,7 +22,6 @@ public class Compilador {
 			parser.run();
 			System.out.println("Tabla de Simbolos: \n" +TablaSimbolos.imprimir());
 		 } catch (Exception e) {}
-
 	}
 
 }

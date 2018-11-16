@@ -252,7 +252,7 @@ public class AnalizadorLexico {
 		
 		if (devolucion != null) {
 			Parser.yylval = new ParserVal(devolucion.getLexema());
-			System.out.println("Linea " + programaFuente.getNroLinea() + ": (AL) " + devolucion.imprimir());
+			//System.out.println("Linea " + programaFuente.getNroLinea() + ": (AL) " + devolucion.imprimir());
 			return devolucion.getIdentificador();
 		}
 		

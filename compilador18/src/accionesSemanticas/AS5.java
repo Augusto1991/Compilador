@@ -6,7 +6,6 @@ import globales.TablaSimbolos;
 
 public class AS5 implements AccionSemantica {
 
-	@Override
 	public Token ejecutar(BufferLectura pf, StringBuilder lexema, char ultimo_caracter) {
 		// Verificar palabra reservada
 		pf.devolverCaracter(ultimo_caracter);
